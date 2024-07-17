@@ -1,0 +1,18 @@
+Environ:
+  template: '{package_location}/yaml/temp/default.yaml'
+  export:
+    ENV_HOME: $HOME/tmp/cora
+State:
+  region: US
+  start_date: 20190501
+  end_date: 20190531
+  instruction: bod
+  workflow: test
+  dump_base: $ENV_HOME/retail/{region}/{instruction}
+
+
+test:
+  root_node: RETL
+RETL:
+  class: retail.agg.SubPenny
+  venue: NYSE
